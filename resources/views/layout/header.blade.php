@@ -21,7 +21,7 @@
             </li>
 
             <li>
-                <a href="{{route('addIncome')}}">
+                <a href="{{route('addincome')}}">
                     <span class="icon">
                         <ion-icon name="wallet-outline"></ion-icon>
                     </span>

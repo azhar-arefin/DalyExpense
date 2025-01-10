@@ -32,8 +32,8 @@ body {
   position: fixed;
   width: 300px;
   height: 100%;
-  background: var(--blue);
-  border-left: 10px solid var(--blue);
+  background: #030304;
+ /* border-left: 10px solid var(--blue); */
   transition: 0.5s;
   overflow: hidden;
 }
@@ -666,3 +666,6 @@ input:focus, select:focus, textarea:focus {
 }
 
 
+.color{
+  color: red;
+} 

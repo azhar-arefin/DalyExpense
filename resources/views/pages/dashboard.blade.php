@@ -1,7 +1,5 @@
-
-
-                <!-- ======================= Cards ================== -->
-                <div class="cardBox">
+            <!-- ======================= Cards ================== -->
+            <div class="cardBox">
                     <div class="card card-1">
                         <div>
                             <div class="numbers">1,504</div>
@@ -50,7 +48,7 @@
            
                 <!-- ======================= Cards ================== -->
                 <div class="link-container"> 
-                    <a href="{{route('addIncome')}}" class="deposit">
+                    <a href="{{route('addincome')}}" class="deposit">
                         <i class="fas fa-plus-circle"></i> Add Income
                     </a>
                     <a href="{{route('addexpense')}}" class="expense">
