@@ -13,19 +13,17 @@ class IncomeController extends Controller
         
         $validatedData = $request->validate([
             'amount' => 'required|numeric|min:1',
-            'income_title' => 'string|max:255',
             'category' => 'required|in:salary,deposits,savings',
-            'date' => 'nullable|date',
+            'date' => 'nullable|date|before_or_equal:today',
         ]);
         
         DB::beginTransaction(); 
         try{
             $customDate = $validatedData['date'] ?? now()->toDateString();
 
-            $income = Income::create([
+            Income::create([
                 'user_id' => auth()->id(),
                 'amount' => $validatedData['amount'],
-                'income_title' => $validatedData['income_title'],
                 'category' => $validatedData['category'],
                 'custom_date' => $customDate,
             ]);
@@ -35,7 +33,33 @@ class IncomeController extends Controller
 
         }catch (Exception $e) {
             DB::rollBack();
-            return response()->json(['success' => false, 'message' => $e->getMessage()], 500);
+            return response()->json(['success' => false,
+            'html' => "<script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: '{$e->getMessage()}',
+                });
+            </script>"
+            ]);
         }
     }
+
+
+    public function incomelist(){
+        $count = 1;
+        $userId = auth()->id();
+        $incomelist = DB::table('incomes')->orderBy('custom_date','asc')->where('user_id', $userId)->get(); 
+        return view('pages.incomelist', compact('incomelist', 'count'));
+    }
+
+  
+   /* public function incomeSum(){
+        $sum = DB::table('incomes')->sum('amount');
+
+        return view('pages.dashboard', compact('sum'));
+
+    }*/
+
+
 }

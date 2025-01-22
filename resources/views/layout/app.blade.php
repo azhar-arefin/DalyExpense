@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daly Expense Report</title>
+    <link rel="icon" type="image/png" href="{{ asset('imgs/daily-expense.png') }}">
+
+
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="{{asset('css/admin_style.css')}}">
 
@@ -12,6 +15,12 @@
     <!-- Icons CDN  //  https://fonts.google.com/icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+ <!-- TinyMCE -->
+ <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+   
+
+<!-- Sweet Alert  -->
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 <body>

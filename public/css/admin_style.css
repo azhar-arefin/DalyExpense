@@ -32,8 +32,8 @@ body {
   position: fixed;
   width: 300px;
   height: 100%;
-  background: #030304;
- /* border-left: 10px solid var(--blue); */
+  background: var(--blue);
+  border-left: 10px solid var(--blue);
   transition: 0.5s;
   overflow: hidden;
 }
@@ -210,68 +210,75 @@ body {
   object-fit: cover;
 }
 
-/* ======================= Cards ====================== */
+/*  ---------  Card  ---------------- */
 .cardBox {
   position: relative;
   width: 100%;
   padding: 20px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 30px;
+  justify-content: center;
 }
 
-.cardBox .card {
-  position: relative;
-  padding: 30px;
-  border-radius: 20px;
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  transition: 0.3s ease-in-out;
   cursor: pointer;
-  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
 }
 
-.cardBox .card .numbers {
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card .numbers {
   position: relative;
   font-weight: 500;
   font-size: 2.5rem;
-  color: #d8d4ff;
+  color: var(--blue);
 }
 
-.cardBox .card .cardName {
-  font-size: 1.1rem;
-  margin-top: 5px;
+.card .cardName {
+  font-size: 1.1em;
+  color: #666;
 }
 
-.cardBox .card .iconBx {
-  font-size: 3.5rem;
-  color: var(--black2);
+.card .cardName a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: 500;
 }
 
-.cardBox .card:hover {
-  background: var(--blue);
-}
-.cardBox .card:hover .numbers,
-.cardBox .card:hover .cardName,
-.cardBox .card:hover .iconBx {
-  color: var(--white);
+.card .cardName a:hover {
+  text-decoration: underline;
 }
 
+.iconBx {
+  font-size: 2em;
+  color: #007bff;
+}
 
-.cardBox .card-1{
-  background-color: green;
-  color: #ffffff;
+.card.card-1 {
+  border-left: 4px solid #007bff;
 }
-.cardBox .card-2{
-  background-color: red;
-  color: #ffffff;
+
+.card.card-2 {
+  border-left: 4px solid #28a745;
 }
-.cardBox .card-3{
-  background-color: #999;
-  color: #ffffff;
+
+.card.card-3 {
+  border-left: 4px solid #ffc107;
 }
-.cardBox .card-4{ 
-  background-color: #1795ce;
-  color: #ffffff;
+
+.card.card-4 {
+  border-left: 4px solid #dc3545;
 }
 
 /* ================== Order Details List ============== */
@@ -487,19 +494,12 @@ body {
 
 
 
-
-
-
-
-
-
 .link-container {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin: 0;
   margin-top: 20px;
 }
 
@@ -538,11 +538,13 @@ body {
 }
 
 
+
+
 @media (max-width: 600px) {
   .link-container {
-      flex-direction: column;
-      align-items: center;
-      margin: 20px;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
   }
 
   .link-container a {
@@ -558,12 +560,12 @@ body {
 
 
 .containers {
-  background-color: #d3d2d2;
+  background-color: #f5f5f59e;
   padding: 20px 30px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 500px;   
+  max-width: 400px;   
   margin-left: 30%;
   margin-top: 50px;
 }
@@ -591,7 +593,7 @@ input, select, textarea {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
-  background-color: #f9f9f9;
+  background-color: #f5f5f59e;
 }
 
 textarea {
@@ -669,3 +671,300 @@ input:focus, select:focus, textarea:focus {
 .color{
   color: red;
 } 
+
+
+
+  /* Single border around the entire table */
+ 
+  .table {
+    border: 2px solid black; 
+    margin: auto;
+    font-size: 38px;
+  }
+  .table tr{
+    border: 2px solid black; 
+    margin: auto;
+    font-size: 48px;
+  }
+  .table thead{
+    background-color: #222;
+    color: #ffffff;
+  }
+  .table tbody tr:nth-child(even) {
+    background-color: #edebeb; 
+  }
+  .table td, .table th {
+      border: none;
+  }
+
+  .table th {
+      font-weight: bold;
+  }
+
+.table-hover tbody tr:hover {
+    background-color: #3d3c3c;
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .table-responsive td {
+        font-size: 17px; 
+    }
+    .table {
+      border: 2px solid black; 
+      font-size: 18px;
+  }
+}
+.text-center{
+  text-align: center;
+}
+
+
+@media (max-width: 1068px) {
+  .table-responsive tr{
+      font-size: 40px; 
+  }
+  .table {
+    border: 2px solid black; 
+    font-size: 28px;
+}
+}
+
+
+
+/* Profile */
+.profile-container {
+  max-width: 900px;
+  margin: 20px auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 9px;
+}
+
+.profile-header {
+  background: #6c63ff;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+.profile-header h1 {
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.profile-header p {
+  font-size: 1.2rem;
+}
+
+.profile-content {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.profile-picture {
+  flex: 1 1 250px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-picture img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #6c63ff;
+}
+
+.profile-info {
+  flex: 2 1 400px;
+  padding: 10px;
+}
+
+.profile-info h2 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: #6c63ff;
+}
+
+.profile-info p {
+  margin-bottom: 15px;
+}
+
+.profile-info .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  background: #6c63ff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.profile-info .btn:hover {
+  background: #4e4ab7;
+}
+
+@media (max-width: 768px) {
+  .profile-content {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .profile-info {
+      text-align: center;
+  }
+}
+
+
+
+
+.table-container {
+  max-width: 1000px;
+  margin: auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  padding: 20px;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+    gap: 15px;
+}
+
+.filters select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.filters label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.filters select,
+.filters button {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.filters button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.filters button:hover {
+  background-color: #0056b3;
+}
+
+/* For larger screens, adjust select width */
+@media (min-width: 768px) {
+  .filters select,
+  .filters button {
+      width: auto;
+  }
+}
+
+
+
+
+@media (max-width: 768px) {
+  table {
+      display: block;
+  }
+
+  thead {
+      display: none;
+  }
+
+  tbody tr {
+      display: block;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  tbody td {
+      display: block;
+      text-align: right;
+      padding: 10px;
+      position: relative;
+  }
+
+  tbody td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 10px;
+      text-align: left;
+      font-weight: bold;
+  }
+}
+.table-container {
+  max-width: 1000px;
+  margin: auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+thead {
+  background-color: #6c63ff;
+  color: white;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+th {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.summary {
+  margin-top: 20px;
+  padding: 15px;
+  background: #e8f5e9;
+  border: 1px solid #4caf50;
+  border-radius: 8px;
+}
+
+.summary h3 {
+  margin-bottom: 10px;
+}
+
+

@@ -15,13 +15,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->decimal('amount', 10, 2); 
-            $table->string('expense_title');
             $table->string('category');
-            $table->date('current_date');
             $table->date('custom_date');
             $table->timestamps(); 
-             // Set user is = Forne key
-             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            // Set user is = Forne key
+            $table->foreign('user_id')->references('id')->on('users')->restrictOnDelete();
            
         });
     }

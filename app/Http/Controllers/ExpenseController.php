@@ -15,19 +15,17 @@ class ExpenseController extends Controller
 
         $validatedData = $request->validate([
             'amount' => 'required|numeric|min:1',
-            'expense_title' => 'string|max:255',
             'category' => 'required|in:food,transport,bills,shopping,education,others',
-            'date' => 'nullable|date',
+            'date' => 'nullable|date|before_or_equal:today',
         ]);
         
         DB::beginTransaction(); 
         try{
             $customDate = $validatedData['date'] ?? now()->toDateString();
 
-            $income = Expense::create([
+            Expense::create([
                 'user_id' => auth()->id(),
                 'amount' => $validatedData['amount'],
-                'expense_title' => $validatedData['expense_title'],
                 'category' => $validatedData['category'],
                 'custom_date' => $customDate,
             ]);
@@ -37,7 +35,33 @@ class ExpenseController extends Controller
 
         }catch (Exception $e) {
             DB::rollBack();
-            return response()->json(['success' => false, 'message' => $e->getMessage()], 500);
+            return response()->json(['success' => false,
+            'html' => "<script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: '{$e->getMessage()}',
+                });
+            </script>"
+        ]);
         }
     }
+
+
+
+    public function expenselist(){
+        $count = 1;
+        $userId = auth()->id();
+        $expenselist = DB::table('expenses')->orderBy('custom_date','asc')->where('user_id', $userId)->get(); 
+        return view('pages.expense', compact('expenselist', 'count'));
+    }
+
+ /*   public function expenseSum(){
+        $sumexp = DB::table('expense')->sum('amount');
+
+        return view('pages.incomesum', compact('sumexp'));
+    }*/
+
+
+
 }

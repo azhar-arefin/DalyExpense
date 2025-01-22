@@ -13,11 +13,11 @@ class Income extends Model
     protected $fillable = [
         'user_id',
         'amount',
-        'income_title',
         'category',
         'custom_date',
     ];
     protected $attributes=[
         'user_id'=> '0',
-    ];
+        'custom_date' => null,
+    ]; 
 }

@@ -8,22 +8,17 @@
         <form action="{{ route('addexpense.submit') }}" method="POST">
             @csrf
 
-            <div class="form-group">
+            <div class="form-group" style="position: relative;">
                 <label for="amount">Amount</label>
-                <input type="number" id="amount" name="amount" placeholder="Enter amount"  value="{{ old('amount') }}">
-            @error('amount')
-                <p class="color">{{$message}}</p>
-            @enderror
+                <span style="position: absolute; top: 65%; left: 10px; transform: translateY(-50%); font-size: 16px; color: #555;">$</span>
+                <input type="number" id="amount" name="amount" placeholder="Enter amount" 
+                    value="{{ old('amount') }}" 
+                    style="padding-left: 30px; width: 100%; box-sizing: border-box;">
+                @error('amount')
+                    <p class="color">{{$message}}</p>
+                @enderror
             </div>
-            
 
-            <div class="form-group">
-                <label for="expense-title">Expense Title</label>
-                <input type="text" id="expense-title" name="expense_title" placeholder="Enter expense title"  value="{{ old('expense') }}">
-            @error('expense_title')
-                <p class="color">{{$message}}</p>
-            @enderror
-            </div>
             
 
             <div class="form-group">
