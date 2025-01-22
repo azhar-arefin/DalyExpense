@@ -19,10 +19,9 @@
                 <tbody>
 
                 @if(isset($incomelist) && $incomelist->isNotEmpty())
-             
-                @foreach ($incomelist as $income)
+                    @foreach ($incomelist as $index => $income)
                     <tr>
-                        <td>{{  $count++ }}</td>
+                        <td>{{ $loop->iteration + ($incomelist->currentPage() - 1) * $incomelist->perPage() }}</td>
                         <td>{{ $income->amount }}</td>
                         <td>{{ $income->category }}</td>
                         <td>{{ $income->custom_date }}</td>
@@ -38,6 +37,11 @@
 
                 </tbody>
             </table>
+           <!--  Pagination Links -->
+            <div class="mt-3 d-flex justify-content-center">
+                {{ $incomelist->links('pagination::bootstrap-4') }}
+            </div>
+
         </div>
     </div>
 

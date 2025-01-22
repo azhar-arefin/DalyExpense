@@ -49,7 +49,10 @@ class IncomeController extends Controller
     public function incomelist(){
         $count = 1;
         $userId = auth()->id();
-        $incomelist = DB::table('incomes')->orderBy('custom_date','asc')->where('user_id', $userId)->get(); 
+        $incomelist = DB::table('incomes')
+            ->where('user_id', $userId)
+            ->orderBy('custom_date','asc')
+            ->paginate(10); 
         return view('pages.incomelist', compact('incomelist', 'count'));
     }
 

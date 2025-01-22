@@ -52,7 +52,10 @@ class ExpenseController extends Controller
     public function expenselist(){
         $count = 1;
         $userId = auth()->id();
-        $expenselist = DB::table('expenses')->orderBy('custom_date','asc')->where('user_id', $userId)->get(); 
+        $expenselist = DB::table('expenses')->where('user_id', $userId)
+                ->orderBy('custom_date','asc')
+                ->paginate(10); 
+        ; 
         return view('pages.expense', compact('expenselist', 'count'));
     }
 

@@ -36,6 +36,11 @@
                 @endif  
                 </tbody>
             </table>
+
+             <!--  Pagination Links -->
+             <div class="mt-3 d-flex justify-content-center">
+                {{ $expenselist->links('pagination::bootstrap-4') }}
+            </div>
         </div>
     </div>
 

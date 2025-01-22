@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Exception;
 use App\Models\Income;
 use App\Models\Expense;
-
+use PDF;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -30,7 +30,8 @@ class ReportController extends Controller
         $income = DB::table('incomes')
             ->where('user_id', $userId)
             ->whereYear('custom_date', $year)
-            ->whereMonth('custom_date', $month)->orderBy('custom_date','asc')
+            ->whereMonth('custom_date', $month)
+            ->orderBy('custom_date','asc')
             ->get();
 
         $expense = DB::table('expenses')
@@ -60,9 +61,9 @@ class ReportController extends Controller
             ->get();
         $sumexp = DB::table('expenses')->where('user_id', $userId)->sum('amount');
 
-        $balence = $suminc - $sumexp;
+        $balance = $suminc - $sumexp;
 
-        return view('pages.allsummary', compact('income','suminc', 'expense','sumexp','balence'));
+        return view('pages.allsummary', compact('income','suminc', 'expense','sumexp','balance'));
     }
 
     public function sum(){
@@ -92,6 +93,42 @@ class ReportController extends Controller
     }
 
 
+    public function pdfgenerate()
+    {
+        $userId = auth()->id(); 
+    
+        // Fetch income and expenses
+        $income = DB::table('incomes')
+            ->where('user_id', $userId)
+            ->orderBy('custom_date', 'asc')
+            ->get();
+        
+        $suminc = DB::table('incomes')->where('user_id', $userId) ->sum('amount');
+    
+        $expense = DB::table('expenses')
+            ->where('user_id', $userId)
+            ->orderBy('custom_date', 'asc')
+            ->get();
+        
+        $sumexp = DB::table('expenses') ->where('user_id', $userId)->sum('amount');
+    
+        $balance = $suminc - $sumexp;
+
+
+        $pdf = PDF::loadView('pages.allsummary', [
+            'income' => $income,
+            'suminc' => $suminc,
+            'expense' => $expense,
+            'sumexp' => $sumexp,
+            'balance' => $balance,
+            'isPdf' => true, // Pass flag for PDF
+        ])->setPaper('a4', 'portrait');
+
+
+        return $pdf->download('all_report.pdf');
+
+    }
+    
 
 
 

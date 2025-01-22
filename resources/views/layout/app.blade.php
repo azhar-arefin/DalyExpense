@@ -18,6 +18,9 @@
  <!-- TinyMCE -->
  <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
    
+ <style>
+    @yield('style')
+ </style>
 
 <!-- Sweet Alert  -->
  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

@@ -69,7 +69,9 @@ Route::get('/notes',[ReportController::class,'notes'])->name('notes');
 
 
 
+Route::get('/summary-report', [ReportController::class ,'allsummaryreport'])->name('summary-report');
 
+Route::get('/summary-report/pdf', [ReportController::class, 'pdfgenerate'])->name('summary-report.pdf');
 
 
 
