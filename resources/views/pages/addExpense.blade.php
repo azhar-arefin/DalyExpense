@@ -25,12 +25,12 @@
                 <label for="category">Category</label>
                 <select id="category" name="category">
                     <option value="" disabled selected>Select a category</option>
-                    <option value="food" {{ old('category') == 'food' ? 'selected' : '' }}>Food</option>
-                    <option value="transport" {{ old('category') == 'transport' ? 'selected' : '' }}>Transport</option>
-                    <option value="bills" {{ old('category') == 'bills' ? 'selected' : '' }}>Bills</option>
-                    <option value="shopping" {{ old('category') == 'shopping' ? 'selected' : '' }}>Shopping</option>
-                    <option value="education" {{ old('category') == 'education' ? 'selected' : '' }}>Education</option>
-                    <option value="others" {{ old('category') == 'others' ? 'selected' : '' }}>Others</option>
+                    <option value="food">Food</option>
+                    <option value="transport">Transport</option>
+                    <option value="bills">Bills</option>
+                    <option value="shopping">Shopping</option>
+                    <option value="education">Education</option>
+                    <option value="others">Others</option>
 
                 </select>
             @error('category')

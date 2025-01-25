@@ -52,7 +52,7 @@ class IncomeController extends Controller
         $incomelist = DB::table('incomes')
             ->where('user_id', $userId)
             ->orderBy('custom_date','asc')
-            ->paginate(10); 
+            ->paginate(15); 
         return view('pages.incomelist', compact('incomelist', 'count'));
     }
 

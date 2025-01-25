@@ -19,7 +19,7 @@
                 <tbody>
 
                 @if(isset($incomelist) && $incomelist->isNotEmpty())
-                    @foreach ($incomelist as $index => $income)
+                    @foreach ($incomelist as  $income)
                     <tr>
                         <td>{{ $loop->iteration + ($incomelist->currentPage() - 1) * $incomelist->perPage() }}</td>
                         <td>{{ $income->amount }}</td>
@@ -42,7 +42,7 @@
                 {{ $incomelist->links('pagination::bootstrap-4') }}
             </div>
 
-        </div>
+        </div>    
     </div>
 
 

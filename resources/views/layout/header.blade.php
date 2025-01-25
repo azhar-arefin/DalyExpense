@@ -2,10 +2,9 @@
    <div class="container">
     <div class="navigation">
         <ul>
-        @if (Route::has('login'))
             @auth
             <li>
-                <a href="{{route('/')}}">
+                <a href="{{url('/')}}">
                     <span class="icon">
                         <img src="{{asset('imgs/daily-expense.png')}}" alt="" Style="width:30px">
                     </span>
@@ -14,7 +13,7 @@
             </li>
 
             <li>
-                <a href="{{route('/')}}">
+                <a href="{{url('/')}}">
                     <span class="icon">
                         <ion-icon name="home-outline"></ion-icon>
                     </span>
@@ -23,7 +22,7 @@
             </li>
 
             <li>
-                <a href="{{route('addincome')}}">
+                <a href="{{url('addincome')}}">
                     <span class="icon">
                         <ion-icon name="wallet-outline"></ion-icon>
                     </span>
@@ -32,7 +31,7 @@
             </li>
 
             <li>
-                <a href="{{route('addexpense')}}">
+                <a href="{{url('addexpense')}}">
                     <span class="icon">
                         <ion-icon name="cash-outline"></ion-icon>
                     </span>
@@ -41,7 +40,7 @@
             </li>
 
             <li>
-                <a href="{{route('summary-report')}}">
+                <a href="{{url('summary-report')}}">
                     <span class="icon">
                         <ion-icon name="document-text-outline"></ion-icon>
                     </span>
@@ -50,7 +49,7 @@
             </li>
 
             <li>
-                <a href="{{route('incomelist')}}">
+                <a href="{{url('incomelist')}}">
                     <span class="icon">
                         <ion-icon name="list-outline"></ion-icon>
                     </span>
@@ -58,7 +57,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{route('expenselist')}}">
+                <a href="{{url('expenselist')}}">
                     <span class="icon">
                         <ion-icon name="list-outline"></ion-icon>
                     </span>
@@ -67,7 +66,7 @@
             </li>
 
             <li>
-                <a href="{{route('monthlyreport')}}">
+                <a href="{{url('monthlyreport')}}">
                     <span class="icon">
                         <ion-icon name="bar-chart-outline"></ion-icon>
                     </span>
@@ -75,16 +74,16 @@
                 </a>
             </li>
             <li>
-                <a href="{{route('logout')}}">
+                <a href="{{url('logout')}}">
                     <span class="icon">
                         <ion-icon name="log-out-outline"></ion-icon>
                     </span>
                     <span class="title">Sign Out</span>
                 </a>
             </li>
-            @else    
+            @else   
                 <li>
-                    <a href="{{route('/login')}}">
+                    <a href="{{url('/login')}}">
                         <span class="icon">
                             <ion-icon name="list-outline"></ion-icon>
                         </span>
@@ -93,7 +92,7 @@
                 </li>
 
                 <li>
-                    <a href="{{route('/registration')}}">
+                    <a href="{{url('/registration')}}">
                         <span class="icon">
                             <ion-icon name="bar-chart-outline"></ion-icon>
                         </span>
@@ -101,8 +100,7 @@
                     </a>
                 </li>
             
-                @endauth   
-        @endif
+            @endauth
         </ul>
 
     </div>
@@ -129,7 +127,7 @@
             </div>
 
             <div class="user">
-            <a href="{{route('profile')}}">
+            <a href="{{url('profile')}}">
             <img src="{{asset('imgs/customer01.jpg')}}" alt="">
             </a>
             </div>

@@ -241,7 +241,7 @@ body {
 .card .numbers {
   position: relative;
   font-weight: 500;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   color: var(--blue);
 }
 
@@ -675,60 +675,61 @@ input:focus, select:focus, textarea:focus {
 
 
   /* Single border around the entire table */
- 
   .table {
-    border: 2px solid black; 
+    border: 2px solid black;
     margin: auto;
     font-size: 38px;
+    border-collapse: collapse; /* Ensure borders merge properly */
+    width: 100%; /* Full width for responsiveness */
   }
-  .table tr{
-    border: 2px solid black; 
-    margin: auto;
-    font-size: 48px;
-  }
-  .table thead{
+  
+  .table thead {
     background-color: #222;
     color: #ffffff;
   }
+  
   .table tbody tr:nth-child(even) {
-    background-color: #edebeb; 
+    background-color: #edebeb;
   }
-  .table td, .table th {
-      border: none;
-  }
-
-  .table th {
-      font-weight: bold;
-  }
-
-.table-hover tbody tr:hover {
+  
+  .table-hover tbody tr:hover {
     background-color: #3d3c3c;
     color: #ffffff;
-}
-
-@media (max-width: 768px) {
-    .table-responsive td {
-        font-size: 17px; 
-    }
+  }
+  
+  .table th, .table td {
+    padding: 10px; /* Consistent padding for cells */
+    text-align: center; /* Center-align content */
+    border: none; /* Remove individual cell borders */
+  }
+  
+  .table th {
+    font-weight: bold;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1068px) {
     .table {
-      border: 2px solid black; 
+      font-size: 28px;
+    }
+    .table th, .table td {
+      font-size: 24px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .table {
       font-size: 18px;
+    }
+    .table th, .table td {
+      font-size: 17px;
+    }
   }
-}
-.text-center{
-  text-align: center;
-}
-
-
-@media (max-width: 1068px) {
-  .table-responsive tr{
-      font-size: 40px; 
+  
+  /* Center text utility class */
+  .text-center {
+    text-align: center;
   }
-  .table {
-    border: 2px solid black; 
-    font-size: 28px;
-}
-}
 
 
 
@@ -880,41 +881,7 @@ input:focus, select:focus, textarea:focus {
   }
 }
 
-
-
-
-@media (max-width: 768px) {
-  table {
-      display: block;
-  }
-
-  thead {
-      display: none;
-  }
-
-  tbody tr {
-      display: block;
-      margin-bottom: 10px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  tbody td {
-      display: block;
-      text-align: right;
-      padding: 10px;
-      position: relative;
-  }
-
-  tbody td::before {
-      content: attr(data-label);
-      position: absolute;
-      left: 10px;
-      text-align: left;
-      font-weight: bold;
-  }
-}
+ 
 .table-container {
   max-width: 1000px;
   margin: auto;

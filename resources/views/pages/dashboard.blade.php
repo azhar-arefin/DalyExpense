@@ -7,7 +7,7 @@
              <!-- Income Card -->
             <div class="card card-1">
                 <div>   
-                    <div class="numbers">$  {{ $suminc }} </div> 
+                    <div class="numbers">${{ $suminc }} </div> 
                     <div class="cardName">Income</div>
                 </div>
                 <div class="iconBx">
@@ -18,7 +18,7 @@
             <!-- Expense Card -->
             <div class="card card-2">
                 <div>
-                    <div class="numbers">$  {{ $sumexp }} </div>
+                    <div class="numbers">${{ $sumexp }} </div>
                     <div class="cardName">Expense</div>
                 </div>
                 <div class="iconBx">
@@ -29,7 +29,7 @@
             <!-- Balance Card -->
             <div class="card card-4">
                 <div>
-                    <div class="numbers">$  {{$balence}} </div>
+                    <div class="numbers">${{$balence}} </div>
                     <div class="cardName">Balance</div>
                 </div>
                 <div class="iconBx">
@@ -41,7 +41,7 @@
             <!-- Monthly Report -->
             <div class="card card-1">
                 <div>
-                    <div class="cardName"><a href="{{route('monthlyreport')}}">Monthly Report</a></div>
+                    <div class="cardName"><a href="{{url('monthlyreport')}}">Monthly Report</a></div>
                 </div>
                 <div class="iconBx">
                     <ion-icon name="document-text-outline"></ion-icon>
@@ -51,7 +51,7 @@
             <!-- Income List -->
             <div class="card card-2">
                 <div>
-                    <div class="cardName"><a href="{{route('incomelist')}}">Income List</a></div>
+                    <div class="cardName"><a href="{{url('incomelist')}}">Income List</a></div>
                 </div>
                 <div class="iconBx">
                     <ion-icon name="receipt-outline"></ion-icon>
@@ -61,7 +61,7 @@
             <!-- Expense List -->
             <div class="card card-3">
                 <div>
-                    <div class="cardName"><a href="{{route('expenselist')}}">Expense List</a></div>
+                    <div class="cardName"><a href="{{url('expenselist')}}">Expense List</a></div>
                 </div>
                 <div class="iconBx">
                     <ion-icon name="list-circle-outline"></ion-icon>
@@ -71,7 +71,7 @@
             <!-- Notes -->
             <div class="card card-4">
                 <div>
-                    <div class="cardName"><a href="{{route('notes')}}">Notes</a></div>
+                    <div class="cardName"><a href="">Notes</a></div>
                 </div>
                 <div class="iconBx">
                     <ion-icon name="pencil-outline"></ion-icon>
@@ -81,7 +81,7 @@
             <!-- Calculator -->
             <div class="card card-4">
                 <div>
-                    <div class="cardName"><a href="{{route('calculator')}}">Calculator</a></div>
+                    <div class="cardName"><a href="{{url('calculator')}}">Calculator</a></div>
                 </div>
                 <div class="iconBx">
                     <ion-icon name="calculator-outline"></ion-icon>
@@ -91,7 +91,7 @@
             <!-- Calender -->
             <div class="card card-4">
                 <div>
-                    <div class="cardName"><a href="{{route('calender')}}">Calender</a></div>
+                    <div class="cardName"><a href="{{url('calender')}}">Calender</a></div>
                 </div>
                 <div class="iconBx">
                     <ion-icon name="calendar-outline"></ion-icon>

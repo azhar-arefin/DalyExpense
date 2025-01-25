@@ -54,12 +54,12 @@ class ExpenseController extends Controller
         $userId = auth()->id();
         $expenselist = DB::table('expenses')->where('user_id', $userId)
                 ->orderBy('custom_date','asc')
-                ->paginate(10); 
-        ; 
+                ->paginate(15); 
+
         return view('pages.expense', compact('expenselist', 'count'));
     }
 
- /*   public function expenseSum(){
+    /*   public function expenseSum(){
         $sumexp = DB::table('expense')->sum('amount');
 
         return view('pages.incomesum', compact('sumexp'));

@@ -1,16 +1,12 @@
 
-@extends('layout.app')
+@extends('layout.report')
 
 @section('style')
 
     @page {
         margin: 0;
     } 
-    body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+    
     .table-container {
             margin: 20px auto;
             width: 90%;
